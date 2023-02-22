@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+<meta charset="UTF-8" />
+<link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+    <!-- <div th:fragment="header">
+        <h1>Thymeleaf Fragments sample</h1>
+    </div> -->
+    <div th:fragment="header">
+        <!-- <nav class="navbar navbar-expand-sm bg-light">
+            <div class="container-fluid">
+              <ul class="navbar-nav me-2">
+                    <h1>Thymeleaf Fragments sample</h1>
+              </ul>
+            </div>
+        </nav> -->
+        <header class="p-3 bg-dark text-white">
+            <div class="container">
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="https://e-edu.nbu.bg/theme/nbu2/pix/moodle-nbu.png"/></svg>
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  <li class="nav-link px-10 text-white" >CSCB525-TransportCompany</li>
+                  <li class="nav-link px-10 text-white" >Student: Кует Хъу Нгуен</li>
+                  <li class="nav-link px-10 text-white" >FN: 89497</li>
+                </ul>
+              </div>
+            </div>
+          </header>
+    </div>
+    <div th:fragment="aside" class="container-fluid">
+        <div class="row">
+          <nav id="sidebarMenu" class="col-lg d-md-block sidebar bg-light">
+            <div class="position-sticky pt-3">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" th:href="@{/companies}">
+                    Company
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" th:href="@{/vehicles}">
+                    Vehicle
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" th:href="@{/drivers}">
+                    Driver
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" th:href="@{/transportations}">
+                    Transportation
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" th:href="@{/stocks}">
+                    Stock
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    <div class="another">This is another sidebar</div>
+    <footer >
+    </footer>
+</body>
+</html>

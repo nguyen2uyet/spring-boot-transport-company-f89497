@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <header th:insert="fragments.html :: header" ></header>  
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-3">
+              <aside th:insert="fragments.html :: aside"></aside> 
+            </div>
+            <div class="col-9">
+              <!-- content -->
+              <form action="#" th:action="@{/transportation/add}" th:object="${transportation}" method="post">
+                <div class="mb-3 mt-3 col-sm-4">
+                    <label class="form-label" th:text="*{id}"></label>
+                    <input type="hidden" th:field="*{id}">
+                </div>
+                <div class="mb-3 mt-3 col-sm-4">
+                    <label class="form-label">Start Point:</label>
+                    <input type="text" class="form-control" th:field="*{startPoint}" />
+                </div>
+                <div class="mb-3 mt-3 col-sm-4">
+                    <label class="form-label">End Point:</label>
+                    <input type="text" class="form-control" th:field="*{endPoint}" />
+                </div>
+                <div class="mb-3 mt-3 col-sm-4">
+                    <label class="form-label">Depature Time:</label>
+                    <!-- <input type="text" class="form-control" th:field="*{depature_time}" /> -->
+                    <input type="date" class="form-control" th:field="*{depatureTime}" />
+                </div>
+                <div class="mb-3 mt-3 col-sm-4">
+                    <label class="form-label">End Time:</label>
+                    <!-- <input type="text" class="form-control" th:field="*{end_time}" /> -->
+                    <input type="date" class="form-control" th:field="*{arrivalTime}" />
+                </div>
+                <div class="mb-3 mt-3 col-sm-4">
+                    <label class="form-label">Driver:</label>
+                    <select th:field="*{driver_id}" class="form-control" id="dropDownList">
+                        <option th:each="driver : ${drivers}" th:value="${driver.getId()}" th:text="${driver.getName()}" th:selected="${transportation.driver_id}"></option>
+                    </select>
+                </div>
+                <div class="mb-3 mt-3 col-sm-4">
+                    <label class="form-label">Vehicle:</label>
+                    <select th:field="*{vehicle_id}" class="form-control" id="dropDownList">
+                        <option th:each="vehicle : ${vehicles}" th:value="${vehicle.getId()}" th:text="${vehicle.getPlate()}" th:selected="${transportation.vehicle_id}"></option>
+                    </select>
+                </div>
+                <div class="mb-3 mt-3 col-sm-4">
+                    <label class="form-label">Company:</label>
+                    <select th:field="*{company_id}" class="form-control" id="dropDownList">
+                        <option th:each="company : ${companies}" th:value="${company.getId()}" th:text="${company.getName()}" th:selected="${transportation.company_id}"></option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+          </div>
+    </div>
+</body>
+
+</html>
